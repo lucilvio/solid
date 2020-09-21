@@ -18,23 +18,23 @@ namespace Solid.Structured
         
         public void Save(int id, string message)
         {
-            Console.WriteLine($"Saving the message.... {id}",  id);
+            Console.WriteLine($"Saving the message {message} .... file {id}.txt",  id);
 
             var file = this.GetFileInfo(id);
             File.WriteAllText(file.FullName, message);
 
-            Console.WriteLine("File saved");
+            Console.WriteLine($"File saved. Message {message}");
         }
 
         public string Read(int id)
         {
-            Console.WriteLine($"Reading message.... {id}, id");
+            Console.WriteLine($"Reading message.... {id}");
 
             var file = this.GetFileInfo(id);
 
             if(!file.Exists)
             {
-                Console.WriteLine($"File {id} not found", id);
+                Console.WriteLine($"File {id} not found");
                 return "";
             }
 
